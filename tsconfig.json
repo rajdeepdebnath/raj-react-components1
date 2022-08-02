@@ -10,7 +10,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "noEmit": true,
+    "noEmit": false,
     "esModuleInterop": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -22,7 +22,8 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "outDir":"dist"
   },
   "include": [
     "src"
