@@ -1,6 +1,6 @@
 {
   "name": "@raj_deb/raj-react-component1",
-  "version": "1.0.0",
+  "version": "13.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -10,6 +10,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "publish:package": "npm run clean && npm run build:esm && npm run build:cjs && npm publish --access public",
     "build:esm": "tsc",
     "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
     "storybook": "start-storybook -p 6006",
@@ -40,5 +41,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@twilio/video-processors": "^1.0.2",
+    "twilio-video": "^2.23.0"
+  }
 }

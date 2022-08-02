@@ -2,18 +2,50 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "declaration": true,
+    "target": "es6",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "noEmit": true,
     "esModuleInterop": true,
-    "jsx": "react",
-    "lib": ["ES5", "ES2015", "ES2016", "DOM", "ESNext"],
-    "types": ["node"],
-    "module": "es2015",
-    "moduleResolution": "node",
-    "noImplicitAny": false,
-    "noUnusedLocals": true,
-    "outDir": "dist/esm",
-    "sourceMap": true,
     "strict": true,
-    "target": "ES6"
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": [
+    "src"
+  ]
 }
+
+
+// {
+//   "compilerOptions": {
+//     "allowSyntheticDefaultImports": true,
+//     "declaration": true,
+//     "esModuleInterop": true,
+//     "jsx": "react",
+//     "lib": ["ES5", "ES2015", "ES2016", "DOM", "ESNext"],
+//     "types": ["node"],
+//     "module": "es2015",
+//     "moduleResolution": "node",
+//     "noImplicitAny": false,
+//     "noUnusedLocals": true,
+//     "outDir": "dist/esm",
+//     "sourceMap": true,
+//     "strict": true,
+//     "target": "ES6"
+//   },
+//   "include": ["src/**/*.ts", "src/**/*.tsx"]
+// }

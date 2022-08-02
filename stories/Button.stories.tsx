@@ -1,8 +1,8 @@
-import { Button } from '../src'
+import Video from '../src'
 
 export default {
-  title: 'My Component/Button',
-  component: Button
+  title: 'My Component/Video',
+  component: Video
 }
 
 const Template = (args) => ({
@@ -12,12 +12,12 @@ const Template = (args) => ({
 const PrimaryButton = Template.bind({});
 
 PrimaryButton.args = {
-  variant: 'primary',
+  // variant: 'primary',
 };
 
 export const Primary = {
   args: {
-    variant: 'primary',
-    children: 'My First Button'
+    // variant: 'primary',
+    // children: 'My First Button'
   },
 };
