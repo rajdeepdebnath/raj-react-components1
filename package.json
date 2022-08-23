@@ -1,6 +1,6 @@
 {
   "name": "@raj_deb/raj-react-component1",
-  "version": "19.0.0",
+  "version": "25.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -43,8 +43,14 @@
     "react-router-dom": "^6.3.0"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@twilio/conversations": "^2.1.0",
     "@twilio/video-processors": "^1.0.2",
+    "@twilio/video-room-monitor": "^1.0.0",
+    "is-plain-object": "^5.0.0",
     "react-router-dom": "^6.3.0",
-    "twilio-video": "^2.23.0"
+    "twilio-video": "^2.23.0",
+    "uuid": "^8.3.2"
   }
 }

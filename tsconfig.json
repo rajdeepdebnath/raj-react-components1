@@ -19,7 +19,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "noImplicitThis": true,
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
