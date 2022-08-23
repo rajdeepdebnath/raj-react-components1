@@ -1,12 +1,12 @@
 import React from 'react';
 import { styled, Theme } from '@material-ui/core/styles';
 
-import MenuBar from './components/MenuBar/MenuBar';
-import MobileTopMenuBar from './components/MobileTopMenuBar/MobileTopMenuBar';
-import PreJoinScreens from './components/PreJoinScreens/PreJoinScreens';
-import ReconnectingNotification from './components/ReconnectingNotification/ReconnectingNotification';
-import RecordingNotifications from './components/RecordingNotifications/RecordingNotifications';
-import Room from './components/Room/Room';
+import MenuBar from '../MenuBar/MenuBar';
+import MobileTopMenuBar from '../MobileTopMenuBar/MobileTopMenuBar';
+import PreJoinScreens from '../PreJoinScreens/PreJoinScreens';
+import ReconnectingNotification from '../ReconnectingNotification/ReconnectingNotification';
+import RecordingNotifications from '../RecordingNotifications/RecordingNotifications';
+import Room from '../Room/Room';
 
 import useHeight from './hooks/useHeight/useHeight';
 import useRoomState from './hooks/useRoomState/useRoomState';
@@ -18,9 +18,11 @@ const Container = styled('div')({
 
 const Main = styled('main')(({ theme }: { theme: Theme }) => ({
   overflow: 'hidden',
+  //@ts-ignore - Internal use only. This property is not exposed in type definitions.
   paddingBottom: `${theme.footerHeight}px`, // Leave some space for the footer
   background: 'black',
   [theme.breakpoints.down('sm')]: {
+    //@ts-ignore - Internal use only. This property is not exposed in type definitions.
     paddingBottom: `${theme.mobileFooterHeight + theme.mobileTopBarHeight}px`, // Leave some space for the mobile header and footer
   },
 }));

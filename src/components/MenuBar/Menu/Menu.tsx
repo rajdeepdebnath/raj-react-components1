@@ -1,16 +1,16 @@
 import React, { useState, useRef } from 'react';
 import AboutDialog from '../../AboutDialog/AboutDialog';
-import BackgroundIcon from '../../../icons/BackgroundIcon';
+import BackgroundIcon from '../../VideoApp/icons/BackgroundIcon';
 import CollaborationViewIcon from '@material-ui/icons/AccountBox';
 import DeviceSelectionDialog from '../../DeviceSelectionDialog/DeviceSelectionDialog';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import GridViewIcon from '@material-ui/icons/Apps';
-import InfoIconOutlined from '../../../icons/InfoIconOutlined';
+import InfoIconOutlined from '../../VideoApp/icons/InfoIconOutlined';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import StartRecordingIcon from '../../../icons/StartRecordingIcon';
-import StopRecordingIcon from '../../../icons/StopRecordingIcon';
+import StartRecordingIcon from '../../VideoApp/icons/StartRecordingIcon';
+import StopRecordingIcon from '../../VideoApp/icons/StopRecordingIcon';
 import SearchIcon from '@material-ui/icons/Search';
-import SettingsIcon from '../../../icons/SettingsIcon';
+import SettingsIcon from '../../VideoApp/icons/SettingsIcon';
 import { Button, styled, Theme, useMediaQuery, Menu as MenuContainer, MenuItem, Typography } from '@material-ui/core';
 import { isSupported } from '@twilio/video-processors';
 
@@ -18,7 +18,7 @@ import { useAppState } from '../../../state';
 import useChatContext from '../../VideoApp/hooks/useChatContext/useChatContext';
 import useIsRecording from '../../VideoApp/hooks/useIsRecording/useIsRecording';
 import useVideoContext from '../../VideoApp/hooks/useVideoContext/useVideoContext';
-import FlipCameraIcon from '../../../icons/FlipCameraIcon';
+import FlipCameraIcon from '../../VideoApp/icons/FlipCameraIcon';
 import useFlipCameraToggle from '../../VideoApp/hooks/useFlipCameraToggle/useFlipCameraToggle';
 import { VideoRoomMonitor } from '@twilio/video-room-monitor';
 

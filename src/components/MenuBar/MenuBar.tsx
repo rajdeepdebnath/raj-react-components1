@@ -3,11 +3,11 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import Button from '@material-ui/core/Button';
 import EndCallButton from '../Buttons/EndCallButton/EndCallButton';
-import { isMobile } from '../../utils';
+import { isMobile } from '../VideoApp/useConnectionOptions';
 import Menu from './Menu/Menu';
-import useParticipants from '../../hooks/useParticipants/useParticipants';
-import useRoomState from '../../hooks/useRoomState/useRoomState';
-import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
+import useParticipants from '../VideoApp/hooks/useParticipants/useParticipants';
+import useRoomState from '../VideoApp/hooks/useRoomState/useRoomState';
+import useVideoContext from '../VideoApp/hooks/useVideoContext/useVideoContext';
 import { Typography, Grid, Hidden } from '@material-ui/core';
 import ToggleAudioButton from '../Buttons/ToggleAudioButton/ToggleAudioButton';
 import ToggleChatButton from '../Buttons/ToggleChatButton/ToggleChatButton';
@@ -21,12 +21,14 @@ const useStyles = makeStyles((theme: Theme) =>
       bottom: 0,
       left: 0,
       right: 0,
+      //@ts-ignore - Internal use only. This property is not exposed in type definitions.
       height: `${theme.footerHeight}px`,
       position: 'fixed',
       display: 'flex',
       padding: '0 1.43em',
       zIndex: 10,
       [theme.breakpoints.down('sm')]: {
+        //@ts-ignore - Internal use only. This property is not exposed in type definitions.
         height: `${theme.mobileFooterHeight}px`,
         padding: 0,
       },
@@ -34,6 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
     screenShareBanner: {
       position: 'fixed',
       zIndex: 8,
+      //@ts-ignore - Internal use only. This property is not exposed in type definitions.
       bottom: `${theme.footerHeight}px`,
       left: 0,
       right: 0,
@@ -44,7 +47,9 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       '& button': {
         background: 'white',
+        //@ts-ignore - Internal use only. This property is not exposed in type definitions.
         color: theme.brand,
+        //@ts-ignore - Internal use only. This property is not exposed in type definitions.
         border: `2px solid ${theme.brand}`,
         margin: '0 2em',
         '&:hover': {
