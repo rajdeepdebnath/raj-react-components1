@@ -1,6 +1,7 @@
 import React, { createContext, ReactNode, useCallback, useState } from 'react';
 import { CreateLocalTrackOptions, ConnectOptions, LocalAudioTrack, LocalVideoTrack, Room } from 'twilio-video';
 import useLocalTracks from './useLocalTracks';
+import useRoom from './useRoom';
 
 export interface IVideoContext {
     room: Room | null;
@@ -49,9 +50,12 @@ interface VideoProviderProps {
       removeLocalVideoTrack,
       getAudioAndVideoTracks,
     } = useLocalTracks();
-    // const { room, isConnecting, connect } = useRoom(localTracks, onErrorCallback, options);
-    const [room, setRoom] = useState<Room | null>(null);
+
+    console.log(localTracks);
+    const { room, isConnecting, connect } = useRoom(localTracks, onErrorCallback, options);
+    // const [room, setRoom] = useState<Room | null>(null);
   
+    console.log(localTracks);
     // const [isSharingScreen, toggleScreenShare] = useScreenShareToggle(room, onError);
   
     // // Register callback functions to be called on room disconnect.

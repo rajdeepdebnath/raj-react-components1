@@ -1,5 +1,6 @@
 import { makeStyles, Typography, Grid, Button, Theme, Hidden, CircularProgress } from '@material-ui/core';
-
+import LocalVideoPreview from './LocalVideoPreview'
+import useVideoContext from '../../hooks/useVideoContext';
 
 const useStyles = makeStyles((theme: Theme) => ({
     gutterBottom: {
@@ -50,8 +51,9 @@ interface DeviceSelectionScreenProps {
 
   export default function DeviceSelectionScreen({ name, roomName }: DeviceSelectionScreenProps) {
     const classes = useStyles();
-    let isFetching = true;
+    let isFetching = false;
     let isConnecting = false;
+    const { isAcquiringLocalTracks } = useVideoContext();
 
     if (isFetching || isConnecting) {
         return (
@@ -72,9 +74,17 @@ interface DeviceSelectionScreenProps {
       
   return (
         <>
-        <Typography variant="h5" className={classes.gutterBottom}>
-            Join {roomName}
-        </Typography>
+            <Typography variant="h5" className={classes.gutterBottom}>
+                Join {roomName}
+            </Typography>
+            
+            <Grid container justifyContent="center">
+                <Grid item md={7} sm={12} xs={12}>
+                    <div className={classes.localPreviewContainer}>
+                        <LocalVideoPreview identity={name} />
+                    </div>
+                </Grid>
+            </Grid>
         </>
     );
   }
