@@ -51,11 +51,9 @@ interface VideoProviderProps {
       getAudioAndVideoTracks,
     } = useLocalTracks();
 
-    console.log(localTracks);
     const { room, isConnecting, connect } = useRoom(localTracks, onErrorCallback, options);
     // const [room, setRoom] = useState<Room | null>(null);
   
-    console.log(localTracks);
     // const [isSharingScreen, toggleScreenShare] = useScreenShareToggle(room, onError);
   
     // // Register callback functions to be called on room disconnect.

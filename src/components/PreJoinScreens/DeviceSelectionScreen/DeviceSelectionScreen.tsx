@@ -1,6 +1,7 @@
 import { makeStyles, Typography, Grid, Button, Theme, Hidden, CircularProgress } from '@material-ui/core';
 import LocalVideoPreview from './LocalVideoPreview'
 import useVideoContext from '../../hooks/useVideoContext';
+import SettingsMenu from './SettingsMenu'
 
 const useStyles = makeStyles((theme: Theme) => ({
     gutterBottom: {
@@ -82,6 +83,9 @@ interface DeviceSelectionScreenProps {
                 <Grid item md={7} sm={12} xs={12}>
                     <div className={classes.localPreviewContainer}>
                         <LocalVideoPreview identity={name} />
+                    </div>
+                    <div className={classes.mobileButtonBar}>
+                        <SettingsMenu mobileButtonClass={classes.mobileButton} />
                     </div>
                 </Grid>
             </Grid>

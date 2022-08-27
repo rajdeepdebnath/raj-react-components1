@@ -1,6 +1,6 @@
 {
   "name": "@raj_deb/raj-react-component1",
-  "version": "48.0.0",
+  "version": "50.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "@twilio/video-processors": "^1.0.2",
     "is-plain-object": "^5.0.0",
     "react": "^18.2.0",
