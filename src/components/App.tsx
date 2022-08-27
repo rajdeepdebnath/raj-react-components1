@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled, Theme } from '@material-ui/core/styles';
+import useHeight from './hooks/useHeight';
 
 
 const Container = styled('div')({
@@ -11,8 +12,10 @@ const Container = styled('div')({
   
 export default function App() {
   
+    const height = useHeight();
+
     return (
-      <Container style={{ height:'80vh' }}>
+      <Container style={{ height, backgroundColor:'green' }}>
         <div>welcomeeeee</div>
       </Container>
     );
