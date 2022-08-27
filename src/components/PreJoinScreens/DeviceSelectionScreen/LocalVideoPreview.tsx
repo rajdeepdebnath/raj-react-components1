@@ -3,6 +3,7 @@ import AvatarIcon from '../../icons/AvatarIcon';
 import { makeStyles, Theme, Typography } from '@material-ui/core';
 import { LocalVideoTrack } from 'twilio-video';
 import useVideoContext from '../../hooks/useVideoContext';
+import VideoTrack from '../../VideoProvider/VideoTrack';
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -64,8 +65,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       <div className={classes.container}>
         <div className={classes.innerContainer}>
           {videoTrack ? (
-            // <VideoTrack track={videoTrack} isLocal />
-            <div>Video track</div>
+            <VideoTrack track={videoTrack} isLocal />
           ) : (
             <div className={classes.avatarContainer}>
               <AvatarIcon />
