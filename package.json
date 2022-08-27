@@ -1,6 +1,6 @@
 {
   "name": "@raj_deb/raj-react-component1",
-  "version": "37.0.0",
+  "version": "39.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -33,6 +33,7 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "babel-loader": "^8.2.5",
+    "prettier": "2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "twilio-video": "^2.22.0",
@@ -46,6 +47,7 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@twilio/video-processors": "^1.0.2",
+    "is-plain-object": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",

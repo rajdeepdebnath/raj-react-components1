@@ -1,22 +1,22 @@
 import React, { createContext, ReactNode, useCallback, useState } from 'react';
 import { CreateLocalTrackOptions, ConnectOptions, LocalAudioTrack, LocalVideoTrack, Room } from 'twilio-video';
-
+import useLocalTracks from './useLocalTracks';
 
 export interface IVideoContext {
     room: Room | null;
-    // localTracks: (LocalAudioTrack | LocalVideoTrack)[];
+    localTracks: (LocalAudioTrack | LocalVideoTrack)[];
     // isConnecting: boolean;
     // connect: (token: string) => Promise<void>;
-    // onError: ErrorCallback;
-    // getLocalVideoTrack: (newOptions?: CreateLocalTrackOptions) => Promise<LocalVideoTrack>;
-    // getLocalAudioTrack: (deviceId?: string) => Promise<LocalAudioTrack>;
-    // isAcquiringLocalTracks: boolean;
-    // removeLocalVideoTrack: () => void;
+    onError: ErrorCallback;
+    getLocalVideoTrack: (newOptions?: CreateLocalTrackOptions) => Promise<LocalVideoTrack>;
+    getLocalAudioTrack: (deviceId?: string) => Promise<LocalAudioTrack>;
+    isAcquiringLocalTracks: boolean;
+    removeLocalVideoTrack: () => void;
     // isSharingScreen: boolean;
     // toggleScreenShare: () => void;
-    // getAudioAndVideoTracks: () => Promise<void>;
-    // isBackgroundSelectionOpen: boolean;
-    // setIsBackgroundSelectionOpen: (value: boolean) => void;
+    getAudioAndVideoTracks: () => Promise<void>;
+    isBackgroundSelectionOpen: boolean;
+    setIsBackgroundSelectionOpen: (value: boolean) => void;
     // backgroundSettings: BackgroundSettings;
     // setBackgroundSettings: (settings: BackgroundSettings) => void;
   }
@@ -40,15 +40,15 @@ interface VideoProviderProps {
       [onError]
     );
   
-    // const {
-    //   localTracks,
-    //   getLocalVideoTrack,
-    //   getLocalAudioTrack,
-    //   isAcquiringLocalTracks,
-    //   removeLocalAudioTrack,
-    //   removeLocalVideoTrack,
-    //   getAudioAndVideoTracks,
-    // } = useLocalTracks();
+    const {
+      localTracks,
+      getLocalVideoTrack,
+      getLocalAudioTrack,
+      isAcquiringLocalTracks,
+      removeLocalAudioTrack,
+      removeLocalVideoTrack,
+      getAudioAndVideoTracks,
+    } = useLocalTracks();
     // const { room, isConnecting, connect } = useRoom(localTracks, onErrorCallback, options);
     const [room, setRoom] = useState<Room | null>(null);
   
@@ -77,19 +77,19 @@ interface VideoProviderProps {
       <VideoContext.Provider
         value={{
           room,
-        //   localTracks,
+          localTracks,
         //   isConnecting,
-        //   onError: onErrorCallback,
-        //   getLocalVideoTrack,
-        //   getLocalAudioTrack,
+          onError: onErrorCallback,
+          getLocalVideoTrack,
+          getLocalAudioTrack,
         //   connect,
-        //   isAcquiringLocalTracks,
-        //   removeLocalVideoTrack,
+          isAcquiringLocalTracks,
+          removeLocalVideoTrack,
         //   isSharingScreen,
         //   toggleScreenShare,
-        //   getAudioAndVideoTracks,
-        //   isBackgroundSelectionOpen,
-        //   setIsBackgroundSelectionOpen,
+          getAudioAndVideoTracks,
+          isBackgroundSelectionOpen,
+          setIsBackgroundSelectionOpen,
         //   backgroundSettings,
         //   setBackgroundSettings,
         }}

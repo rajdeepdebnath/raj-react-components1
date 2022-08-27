@@ -2,6 +2,7 @@ import React from 'react';
 import { styled, Theme } from '@material-ui/core/styles';
 import useHeight from './hooks/useHeight';
 import useRoomState from './hooks/useRoomState';
+import PreJoinScreens from './PreJoinScreens/PreJoinScreens';
 
 
 const Container = styled('div')({
@@ -18,7 +19,7 @@ export default function App() {
 
     return (
         <Container style={{ height, backgroundColor:'green' }}>
-            {roomState === 'disconnected' ? (<div>disconnected11</div>)
+            {roomState === 'disconnected' ? <PreJoinScreens />
             :
             (<div>connected11</div>)}
             <div>welcomeeeee</div>
