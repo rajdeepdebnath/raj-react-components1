@@ -4,6 +4,7 @@ import { makeStyles, Theme, Typography } from '@material-ui/core';
 import { LocalVideoTrack } from 'twilio-video';
 import useVideoContext from '../../hooks/useVideoContext';
 import VideoTrack from '../../VideoProvider/VideoTrack';
+import LocalAudioLevelIndicator from '../../LocalAudioLevelIndicator'
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -75,7 +76,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   
         <div className={classes.identityContainer}>
           <span className={classes.identity}>
-            {/* <LocalAudioLevelIndicator /> */}
+            <LocalAudioLevelIndicator />
             <Typography variant="body1" color="inherit" component="span">
               {identity}
             </Typography>
