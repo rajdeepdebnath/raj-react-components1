@@ -1,6 +1,6 @@
 {
   "name": "@raj_deb/raj-react-component1",
-  "version": "28.0.0",
+  "version": "37.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -35,6 +35,7 @@
     "babel-loader": "^8.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "twilio-video": "^2.22.0",
     "typescript": "^4.7.4"
   },
   "peerDependencies": {

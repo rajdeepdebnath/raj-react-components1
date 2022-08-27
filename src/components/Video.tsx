@@ -8,26 +8,30 @@ import {
 import UnsupportedBrowserWarning from './UnsupportedBrowserWarning/UnsupportedBrowserWarning'
 import LoginPage from './LoginPage/LoginPage'
 import App from './App'
+import { VideoProvider } from './VideoProvider';
 
 interface Props{
 
 }
 
 const Video: React.FC<Props> = ({}) => {
+
+    const setError = (e) => console.error(e);
+    const connectionOptions = undefined;
+    
     return (
         <UnsupportedBrowserWarning>
-            <Routes>
+            <VideoProvider options={connectionOptions} onError={setError}>
+                <App />
+            </VideoProvider>
+            {/* <Routes>
                 <Route path="/login" element={<LoginPage />} >
                 </Route>
                 <Route path="/room" element={<div>Hiiiiii12345</div>} >
                 </Route>
                 <Route path="/video" element={<App />} >
                 </Route>
-                {/* <Route path="/video/room/:URLRoomName" element={<VideoApp />}>
-                </Route>
-                <Route path="/video" element={<VideoApp />}>
-                </Route> */}
-            </Routes>
+            </Routes> */}
         </UnsupportedBrowserWarning>
     )
 }
