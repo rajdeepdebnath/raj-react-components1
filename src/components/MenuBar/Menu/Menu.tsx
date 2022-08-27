@@ -75,9 +75,9 @@ export default function Menu(props: { buttonClassName?: string }) {
         }}
       >
         <MenuItem onClick={() => setSettingsOpen(true)}>
-          <IconContainer>
+          {/* <IconContainer>
             <SettingsIcon />
-          </IconContainer>
+          </IconContainer> */}
           <Typography variant="body1">Audio and Video Settings</Typography>
         </MenuItem>
 
@@ -89,18 +89,18 @@ export default function Menu(props: { buttonClassName?: string }) {
               setMenuOpen(false);
             }}
           >
-            <IconContainer>
+            {/* <IconContainer>
               <BackgroundIcon />
-            </IconContainer>
+            </IconContainer> */}
             <Typography variant="body1">Backgrounds</Typography>
           </MenuItem>
         )}
 
         {flipCameraSupported && (
           <MenuItem disabled={flipCameraDisabled} onClick={toggleFacingMode}>
-            <IconContainer>
+            {/* <IconContainer>
               <FlipCameraIcon />
-            </IconContainer>
+            </IconContainer> */}
             <Typography variant="body1">Flip Camera</Typography>
           </MenuItem>
         )}
@@ -118,7 +118,7 @@ export default function Menu(props: { buttonClassName?: string }) {
             }}
             data-cy-recording-button
           >
-            <IconContainer>{isRecording ? <StopRecordingIcon /> : <StartRecordingIcon />}</IconContainer>
+            {/* <IconContainer>{isRecording ? <StopRecordingIcon /> : <StartRecordingIcon />}</IconContainer> */}
             <Typography variant="body1">{isRecording ? 'Stop' : 'Start'} Recording</Typography>
           </MenuItem>
         )}
@@ -129,9 +129,9 @@ export default function Menu(props: { buttonClassName?: string }) {
             setMenuOpen(false);
           }}
         >
-          <IconContainer>
+          {/* <IconContainer>
             <SearchIcon style={{ fill: '#707578', width: '0.9em' }} />
-          </IconContainer>
+          </IconContainer> */}
           <Typography variant="body1">Room Monitor</Typography>
         </MenuItem>
 
@@ -141,20 +141,20 @@ export default function Menu(props: { buttonClassName?: string }) {
             setMenuOpen(false);
           }}
         >
-          <IconContainer>
+          {/* <IconContainer>
             {isGalleryViewActive ? (
               <CollaborationViewIcon style={{ fill: '#707578', width: '0.9em' }} />
             ) : (
               <GridViewIcon style={{ fill: '#707578', width: '0.9em' }} />
             )}
-          </IconContainer>
+          </IconContainer> */}
           <Typography variant="body1">{isGalleryViewActive ? 'Speaker View' : 'Gallery View'}</Typography>
         </MenuItem>
 
         <MenuItem onClick={() => setAboutOpen(true)}>
-          <IconContainer>
+          {/* <IconContainer>
             <InfoIconOutlined />
-          </IconContainer>
+          </IconContainer> */}
           <Typography variant="body1">About</Typography>
         </MenuItem>
       </MenuContainer>

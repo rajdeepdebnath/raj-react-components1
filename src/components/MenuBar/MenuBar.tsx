@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import Button from '@material-ui/core/Button';
@@ -21,14 +22,12 @@ const useStyles = makeStyles((theme: Theme) =>
       bottom: 0,
       left: 0,
       right: 0,
-      //@ts-ignore - Internal use only. This property is not exposed in type definitions.
       height: `${theme.footerHeight}px`,
       position: 'fixed',
       display: 'flex',
       padding: '0 1.43em',
       zIndex: 10,
       [theme.breakpoints.down('sm')]: {
-        //@ts-ignore - Internal use only. This property is not exposed in type definitions.
         height: `${theme.mobileFooterHeight}px`,
         padding: 0,
       },
@@ -36,7 +35,6 @@ const useStyles = makeStyles((theme: Theme) =>
     screenShareBanner: {
       position: 'fixed',
       zIndex: 8,
-      //@ts-ignore - Internal use only. This property is not exposed in type definitions.
       bottom: `${theme.footerHeight}px`,
       left: 0,
       right: 0,
@@ -47,9 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       '& button': {
         background: 'white',
-        //@ts-ignore - Internal use only. This property is not exposed in type definitions.
         color: theme.brand,
-        //@ts-ignore - Internal use only. This property is not exposed in type definitions.
         border: `2px solid ${theme.brand}`,
         margin: '0 2em',
         '&:hover': {
@@ -86,31 +82,31 @@ export default function MenuBar() {
       )}
       <footer className={classes.container}>
         <Grid container justifyContent="space-around" alignItems="center">
-          <Hidden smDown>
+          {/* <Hidden smDown>
             <Grid style={{ flex: 1 }}>
               <Typography variant="body1">
                 {room!.name} | {participants.length + 1} participant{participants.length ? 's' : ''}
               </Typography>
             </Grid>
-          </Hidden>
+          </Hidden> */}
           <Grid item>
             <Grid container justifyContent="center">
               <ToggleAudioButton disabled={isReconnecting} />
               <ToggleVideoButton disabled={isReconnecting} />
               {!isSharingScreen && !isMobile && <ToggleScreenShareButton disabled={isReconnecting} />}
               {process.env.REACT_APP_DISABLE_TWILIO_CONVERSATIONS !== 'true' && <ToggleChatButton />}
-              <Hidden smDown>
-                <Menu />
-              </Hidden>
+                {/* <Hidden smDown>
+                  <Menu />
+                </Hidden> */}
             </Grid>
           </Grid>
-          <Hidden smDown>
+          {/* <Hidden smDown>
             <Grid style={{ flex: 1 }}>
               <Grid container justifyContent="flex-end">
                 <EndCallButton />
               </Grid>
             </Grid>
-          </Hidden>
+          </Hidden> */}
         </Grid>
       </footer>
     </>

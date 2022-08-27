@@ -10,9 +10,9 @@ import { Participant, Room as IRoom } from 'twilio-video';
 import { ParticipantAudioTracks } from '../ParticipantAudioTracks/ParticipantAudioTracks';
 import ParticipantList from '../ParticipantList/ParticipantList';
 import { useAppState } from '../../state';
-import useChatContext from '../../hooks/useChatContext/useChatContext';
-import useScreenShareParticipant from '../../hooks/useScreenShareParticipant/useScreenShareParticipant';
-import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
+import useChatContext from '../VideoApp/hooks/useChatContext/useChatContext';
+import useScreenShareParticipant from '../VideoApp/hooks/useScreenShareParticipant/useScreenShareParticipant';
+import useVideoContext from '../VideoApp/hooks/useVideoContext/useVideoContext';
 
 const useStyles = makeStyles((theme: Theme) => {
   const totalMobileSidebarHeight = `${theme.sidebarMobileHeight +

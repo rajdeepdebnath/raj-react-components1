@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ParticipantContext } from '../../components/ParticipantProvider';
+import { ParticipantContext } from '../../../ParticipantProvider';
 
 export default function useParticipantContext() {
   const context = useContext(ParticipantContext);

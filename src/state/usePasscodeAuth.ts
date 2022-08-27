@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { v4 as uuidv4 } from "uuid";
 
 const endpoint = process.env.REACT_APP_TOKEN_ENDPOINT || '/token';
@@ -73,7 +73,7 @@ export function getErrorMessage(message: string) {
 }
 
 export default function usePasscodeAuth() {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [user, setUser] = useState<{ displayName: undefined; photoURL: undefined; passcode: string } | null>(null);
   const [isAuthReady, setIsAuthReady] = useState(false);
@@ -127,14 +127,14 @@ export default function usePasscodeAuth() {
           if (verification?.isValid) {
             setUser({ passcode } as any);
             window.sessionStorage.setItem('passcode', passcode);
-            navigate(window.location.pathname);
+            history.push(window.location.pathname);
           }
         })
         .then(() => setIsAuthReady(true));
     } else {
       setIsAuthReady(true);
     }
-  }, [navigate]);
+  }, [history]);
 
   const signIn = useCallback((passcode: string) => {
     return verifyPasscode(passcode).then(verification => {

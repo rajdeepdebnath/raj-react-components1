@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { DEFAULT_VIDEO_CONSTRAINTS } from '../../constants';
+import { DEFAULT_VIDEO_CONSTRAINTS } from '../../../../constants';
 import { LocalVideoTrack } from 'twilio-video';
 import useDevices from '../useDevices/useDevices';
 import useMediaStreamTrack from '../useMediaStreamTrack/useMediaStreamTrack';

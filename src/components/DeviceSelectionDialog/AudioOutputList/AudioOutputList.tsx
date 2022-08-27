@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl, MenuItem, Typography, Select } from '@material-ui/core';
 import { useAppState } from '../../../state';
-import useDevices from '../../../hooks/useDevices/useDevices';
+import useDevices from '../../VideoApp/hooks/useDevices/useDevices';
 
 export default function AudioOutputList() {
   const { audioOutputDevices } = useDevices();

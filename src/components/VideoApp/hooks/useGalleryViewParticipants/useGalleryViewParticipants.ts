@@ -1,7 +1,7 @@
 import { RemoteParticipant } from 'twilio-video';
 import { useEffect, useState } from 'react';
 import useDominantSpeaker from '../useDominantSpeaker/useDominantSpeaker';
-import { useAppState } from '../../state';
+import { useAppState } from '../../../../state';
 import useVideoContext from '../useVideoContext/useVideoContext';
 
 //  If a participant that is not currently on the first page becomes

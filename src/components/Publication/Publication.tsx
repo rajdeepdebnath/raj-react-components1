@@ -1,5 +1,5 @@
 import React from 'react';
-import useTrack from '../../hooks/useTrack/useTrack';
+import useTrack from '../VideoApp/hooks/useTrack/useTrack';
 import VideoTrack from '../VideoTrack/VideoTrack';
 
 import { IVideoTrack } from '../../types';

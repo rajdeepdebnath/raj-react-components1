@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Button from '@material-ui/core/Button';
-import MicIcon from '../../../icons/MicIcon';
-import MicOffIcon from '../../../icons/MicOffIcon';
+import MicIcon from '../../VideoApp/icons/MicIcon';
+import MicOffIcon from '../../VideoApp/icons/MicOffIcon';
 
-import useLocalAudioToggle from '../../../hooks/useLocalAudioToggle/useLocalAudioToggle';
-import useVideoContext from '../../../hooks/useVideoContext/useVideoContext';
+import useLocalAudioToggle from '../../VideoApp/hooks/useLocalAudioToggle/useLocalAudioToggle';
+import useVideoContext from '../../VideoApp/hooks/useVideoContext/useVideoContext';
 
 export default function ToggleAudioButton(props: { disabled?: boolean; className?: string }) {
   const [isAudioEnabled, toggleAudioEnabled] = useLocalAudioToggle();

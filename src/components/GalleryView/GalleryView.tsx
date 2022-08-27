@@ -6,11 +6,11 @@ import { GALLERY_VIEW_ASPECT_RATIO, GALLERY_VIEW_MARGIN } from '../../constants'
 import { IconButton, makeStyles, createStyles, Theme } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab';
 import Participant from '../Participant/Participant';
-import useGalleryViewLayout from '../../hooks/useGalleryViewLayout/useGalleryViewLayout';
-import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
-import useParticipantsContext from '../../hooks/useParticipantsContext/useParticipantsContext';
+import useGalleryViewLayout from '../VideoApp/hooks/useGalleryViewLayout/useGalleryViewLayout';
+import useVideoContext from '../VideoApp/hooks/useVideoContext/useVideoContext';
+import useParticipantsContext from '../VideoApp/hooks/useParticipantsContext/useParticipantsContext';
 import { usePagination } from './usePagination/usePagination';
-import useDominantSpeaker from '../../hooks/useDominantSpeaker/useDominantSpeaker';
+import useDominantSpeaker from '../VideoApp/hooks/useDominantSpeaker/useDominantSpeaker';
 import { useAppState } from '../../state';
 
 const CONTAINER_GUTTER = '50px';

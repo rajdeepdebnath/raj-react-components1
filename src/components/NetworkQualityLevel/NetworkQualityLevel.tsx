@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Participant } from 'twilio-video';
-import useParticipantNetworkQualityLevel from '../../hooks/useParticipantNetworkQualityLevel/useParticipantNetworkQualityLevel';
+import useParticipantNetworkQualityLevel from '../VideoApp/hooks/useParticipantNetworkQualityLevel/useParticipantNetworkQualityLevel';
 
 const useStyles = makeStyles({
   outerContainer: {

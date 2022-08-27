@@ -5,7 +5,7 @@ import MediaErrorSnackbar from './MediaErrorSnackbar/MediaErrorSnackbar';
 import RoomNameScreen from './RoomNameScreen/RoomNameScreen';
 import { useAppState } from '../../state';
 import { useParams } from 'react-router-dom';
-import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
+import useVideoContext from '../VideoApp/hooks/useVideoContext/useVideoContext';
 
 export enum Steps {
   roomNameStep,

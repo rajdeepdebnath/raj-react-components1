@@ -2,9 +2,9 @@ import { CSSProperties } from 'react';
 import clsx from 'clsx';
 import { makeStyles, createStyles, Theme, useMediaQuery } from '@material-ui/core';
 import Participant from '../Participant/Participant';
-import useDominantSpeaker from '../../hooks/useDominantSpeaker/useDominantSpeaker';
-import useParticipantContext from '../../hooks/useParticipantsContext/useParticipantsContext';
-import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
+import useDominantSpeaker from '../VideoApp/hooks/useDominantSpeaker/useDominantSpeaker';
+import useParticipantContext from '../VideoApp/hooks/useParticipantsContext/useParticipantsContext';
+import useVideoContext from '../VideoApp/hooks/useVideoContext/useVideoContext';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';

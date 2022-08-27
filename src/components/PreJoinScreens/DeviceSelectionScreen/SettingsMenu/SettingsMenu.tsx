@@ -9,7 +9,7 @@ import { makeStyles, Theme, useMediaQuery } from '@material-ui/core';
 import AboutDialog from '../../../AboutDialog/AboutDialog';
 import ConnectionOptionsDialog from '../../../ConnectionOptionsDialog/ConnectionOptionsDialog';
 import DeviceSelectionDialog from '../../../DeviceSelectionDialog/DeviceSelectionDialog';
-import SettingsIcon from '../../../../icons/SettingsIcon';
+import SettingsIcon from '../../../VideoApp/icons/SettingsIcon';
 import { useAppState } from '../../../../state';
 
 const useStyles = makeStyles({

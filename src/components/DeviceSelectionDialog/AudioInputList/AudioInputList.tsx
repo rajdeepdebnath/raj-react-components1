@@ -3,9 +3,9 @@ import AudioLevelIndicator from '../../AudioLevelIndicator/AudioLevelIndicator';
 import { LocalAudioTrack } from 'twilio-video';
 import { FormControl, MenuItem, Typography, Select, Grid } from '@material-ui/core';
 import { SELECTED_AUDIO_INPUT_KEY } from '../../../constants';
-import useDevices from '../../../hooks/useDevices/useDevices';
-import useMediaStreamTrack from '../../../hooks/useMediaStreamTrack/useMediaStreamTrack';
-import useVideoContext from '../../../hooks/useVideoContext/useVideoContext';
+import useDevices from '../../VideoApp/hooks/useDevices/useDevices';
+import useMediaStreamTrack from '../../VideoApp/hooks/useMediaStreamTrack/useMediaStreamTrack';
+import useVideoContext from '../../VideoApp/hooks/useVideoContext/useVideoContext';
 
 export default function AudioInputList() {
   const { audioInputDevices } = useDevices();

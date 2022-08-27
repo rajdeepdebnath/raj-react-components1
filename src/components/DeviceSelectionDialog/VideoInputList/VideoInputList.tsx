@@ -4,9 +4,9 @@ import { FormControl, MenuItem, Typography, Select } from '@material-ui/core';
 import { LocalVideoTrack } from 'twilio-video';
 import { makeStyles } from '@material-ui/core/styles';
 import VideoTrack from '../../VideoTrack/VideoTrack';
-import useDevices from '../../../hooks/useDevices/useDevices';
-import useMediaStreamTrack from '../../../hooks/useMediaStreamTrack/useMediaStreamTrack';
-import useVideoContext from '../../../hooks/useVideoContext/useVideoContext';
+import useDevices from '../../VideoApp/hooks/useDevices/useDevices';
+import useMediaStreamTrack from '../../VideoApp/hooks/useMediaStreamTrack/useMediaStreamTrack';
+import useVideoContext from '../../VideoApp/hooks/useVideoContext/useVideoContext';
 
 const useStyles = makeStyles({
   preview: {

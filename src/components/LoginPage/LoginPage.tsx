@@ -1,7 +1,7 @@
 import React, { useState, FormEvent, ChangeEvent } from 'react';
 import IntroContainer from '../IntroContainer/IntroContainer';
 import {Typography,TextField, InputLabel, Grid, Theme, makeStyles, Button} from '@material-ui/core';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { useAppState } from '../../state';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 
@@ -48,18 +48,13 @@ const useStyles = makeStyles((theme: Theme) => ({
 export default function LoginPage() {
     const classes = useStyles();
     const { signIn, user, isAuthReady } = useAppState();
-    const navigate = useNavigate();
+    const history = useHistory();
     const location = useLocation();
     const [passcode, setPasscode] = useState('');
     const [authError, setAuthError] = useState<Error | null>(null);
 
     const login = () => {
-        setAuthError(null);
-        signIn?.(passcode)
-          .then(() => {
-            navigate("/video/room");
-          })
-          .catch(err => setAuthError(err));
+        history.replace("/video/room");
       };
     
       const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -69,48 +64,23 @@ export default function LoginPage() {
 
     return (
         <IntroContainer>    
-          {process.env.REACT_APP_SET_AUTH === 'passcode' && (
-            <>
+          <>
               <Typography variant="h5" className={classes.gutterBottom}>
                 Enter passcode to join a room
               </Typography>
               <form onSubmit={handleSubmit}>
-                <Grid container justifyContent="space-between">
-                  <div className={classes.passcodeContainer}>
-                    <InputLabel shrink htmlFor="input-passcode">
-                      Passcode
-                    </InputLabel>
-                    <TextField
-                      id="input-passcode"
-                      onChange={(e: ChangeEvent<HTMLInputElement>) => setPasscode(e.target.value)}
-                      type="password"
-                      variant="outlined"
-                      size="small"
-                    />
-                    <div>
-                      {authError && (
-                        <Typography variant="caption" className={classes.errorMessage}>
-                          <ErrorOutlineIcon />
-                          {authError.message}
-                        </Typography>
-                      )}
-                    </div>
-                  </div>
-                </Grid>
                 <Grid container justifyContent="flex-end">
                   <Button
                     variant="contained"
                     color="primary"
                     type="submit"
-                    disabled={!passcode.length}
                     className={classes.submitButton}
                   >
-                    Submit
+                    Start Video Call
                   </Button>
                 </Grid>
               </form>
             </>
-          )}
         </IntroContainer>
       );
 }

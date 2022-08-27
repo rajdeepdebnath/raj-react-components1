@@ -4,18 +4,18 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { LocalAudioTrack, LocalVideoTrack, Participant, RemoteAudioTrack, RemoteVideoTrack } from 'twilio-video';
 
 import AudioLevelIndicator from '../AudioLevelIndicator/AudioLevelIndicator';
-import AvatarIcon from '../../icons/AvatarIcon';
+import AvatarIcon from '../VideoApp/icons/AvatarIcon';
 import NetworkQualityLevel from '../NetworkQualityLevel/NetworkQualityLevel';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 
-import useIsRecording from '../../hooks/useIsRecording/useIsRecording';
-import useIsTrackSwitchedOff from '../../hooks/useIsTrackSwitchedOff/useIsTrackSwitchedOff';
-import useParticipantIsReconnecting from '../../hooks/useParticipantIsReconnecting/useParticipantIsReconnecting';
-import usePublications from '../../hooks/usePublications/usePublications';
-import useScreenShareParticipant from '../../hooks/useScreenShareParticipant/useScreenShareParticipant';
-import useTrack from '../../hooks/useTrack/useTrack';
-import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
+import useIsRecording from '../VideoApp/hooks/useIsRecording/useIsRecording';
+import useIsTrackSwitchedOff from '../VideoApp/hooks/useIsTrackSwitchedOff/useIsTrackSwitchedOff';
+import useParticipantIsReconnecting from '../VideoApp/hooks/useParticipantIsReconnecting/useParticipantIsReconnecting';
+import usePublications from '../VideoApp/hooks/usePublications/usePublications';
+import useScreenShareParticipant from '../VideoApp/hooks/useScreenShareParticipant/useScreenShareParticipant';
+import useTrack from '../VideoApp/hooks/useTrack/useTrack';
+import useVideoContext from '../VideoApp/hooks/useVideoContext/useVideoContext';
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {

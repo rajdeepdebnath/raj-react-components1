@@ -7,8 +7,8 @@ import { Steps } from '../PreJoinScreens';
 import ToggleAudioButton from '../../Buttons/ToggleAudioButton/ToggleAudioButton';
 import ToggleVideoButton from '../../Buttons/ToggleVideoButton/ToggleVideoButton';
 import { useAppState } from '../../../state';
-import useChatContext from '../../../hooks/useChatContext/useChatContext';
-import useVideoContext from '../../../hooks/useVideoContext/useVideoContext';
+import useChatContext from '../../VideoApp/hooks/useChatContext/useChatContext';
+import useVideoContext from '../../VideoApp/hooks/useVideoContext/useVideoContext';
 
 const useStyles = makeStyles((theme: Theme) => ({
   gutterBottom: {
@@ -99,20 +99,20 @@ export default function DeviceSelectionScreen({ name, roomName, setStep }: Devic
             <LocalVideoPreview identity={name} />
           </div>
           <div className={classes.mobileButtonBar}>
-            <Hidden mdUp>
+            {/* <Hidden mdUp>
               <ToggleAudioButton className={classes.mobileButton} disabled={disableButtons} />
               <ToggleVideoButton className={classes.mobileButton} disabled={disableButtons} />
-            </Hidden>
+            </Hidden> */}
             <SettingsMenu mobileButtonClass={classes.mobileButton} />
           </div>
         </Grid>
         <Grid item md={5} sm={12} xs={12}>
           <Grid container direction="column" justifyContent="space-between" style={{ height: '100%' }}>
             <div>
-              <Hidden smDown>
+              {/* <Hidden smDown>
                 <ToggleAudioButton className={classes.deviceButton} disabled={disableButtons} />
                 <ToggleVideoButton className={classes.deviceButton} disabled={disableButtons} />
-              </Hidden>
+              </Hidden> */}
             </div>
             <div className={classes.joinButtons}>
               <Button variant="outlined" color="primary" onClick={() => setStep(Steps.roomNameStep)}>
