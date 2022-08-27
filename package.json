@@ -1,6 +1,6 @@
 {
   "name": "@raj_deb/raj-react-component1",
-  "version": "19.0.0",
+  "version": "27.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -43,7 +43,10 @@
     "react-router-dom": "^6.3.0"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
     "@twilio/video-processors": "^1.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "twilio-video": "^2.23.0"
   }
