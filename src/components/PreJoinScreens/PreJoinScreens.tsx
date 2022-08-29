@@ -1,6 +1,7 @@
 import React, { useState, useEffect, FormEvent } from 'react';
 import useVideoContext from '../hooks/useVideoContext';
 import DeviceSelectionScreen from './DeviceSelectionScreen/DeviceSelectionScreen'
+import MediaErrorSnackbar from './MediaErrorSnackbar';
 
 
 
@@ -20,6 +21,7 @@ import DeviceSelectionScreen from './DeviceSelectionScreen/DeviceSelectionScreen
 
     return (
         <div>
+            <MediaErrorSnackbar error={mediaError} />
             <p>PreJoinScreens:</p>
             <DeviceSelectionScreen name={name} roomName={roomName} />
         </div>
