@@ -4,6 +4,7 @@ import DeviceSelectionScreen from './DeviceSelectionScreen/DeviceSelectionScreen
 import MediaErrorSnackbar from './MediaErrorSnackbar';
 import Hidden from '@material-ui/core/Hidden';
 import Paper from '@material-ui/core/Paper';
+import IntroContainer from '../IntroContainer/IntroContainer'
 
 
 
@@ -22,13 +23,13 @@ import Paper from '@material-ui/core/Paper';
       }, [getAudioAndVideoTracks, mediaError]);
 
     return (
-        <div>
+        <IntroContainer>
             <MediaErrorSnackbar error={mediaError} />
             <p>PreJoinScreens:</p>
             <Hidden mdDown>
                 <Paper>Small Down</Paper>
             </Hidden>
             <DeviceSelectionScreen name={name} roomName={roomName} />
-        </div>
+        </IntroContainer>
     );
   }
