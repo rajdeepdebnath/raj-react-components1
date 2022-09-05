@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useReducer, useState } from 'react';
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 import { RecordingRules, RoomType } from '../types';
 import { TwilioError } from 'twilio-video';
 import { settingsReducer, initialSettings, Settings, SettingsAction } from './settingsReducer';
@@ -7,7 +9,7 @@ import { useLocalStorageState } from '../components/hooks/useLocalStorageState';
 export interface StateContextType {
   error: TwilioError | Error | null;
   setError(error: TwilioError | Error | null): void;
-  getToken(name: string, room: string, passcode?: string): Promise<{ room_type: RoomType; token: string }>;
+  getToken(name: string, room: string, passcode?: string): Promise<{ room_type:string, accessToken: string }>;
   user?: null | { displayName: undefined; photoURL: undefined; passcode?: string };
   signIn?(passcode?: string): Promise<void>;
   signOut?(): Promise<void>;
@@ -39,7 +41,7 @@ export default function AppStateProvider(props: React.PropsWithChildren<{}>) {
   const [isFetching, setIsFetching] = useState(false);
   const [isGalleryViewActive, setIsGalleryViewActive] = useLocalStorageState('gallery-view-active-key', true);
   const [settings, dispatchSetting] = useReducer(settingsReducer, initialSettings);
-  const [roomType, setRoomType] = useState<RoomType>();
+  const [roomType, setRoomType] = useState<string>();
   const [maxGalleryViewParticipants, setMaxGalleryViewParticipants] = useLocalStorageState(
     'max-gallery-participants-key',
     6
@@ -60,20 +62,31 @@ export default function AppStateProvider(props: React.PropsWithChildren<{}>) {
 
   contextValue = {
     ...contextValue,
-    getToken: async (user_identity, room_name) => {
-      const endpoint = process.env.REACT_APP_TOKEN_ENDPOINT || '/token';
+    getToken: async (user_name, room_name) => {
+      // const endpoint = process.env.VIDEO_CALL_TOKEN_ENDPOINT || '/token';
 
-      return fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          user_identity,
-          room_name,
-          create_conversation: process.env.REACT_APP_DISABLE_TWILIO_CONVERSATIONS !== 'true',
-        }),
-      }).then(res => res.json());
+      // return fetch(endpoint, {
+      //   method: 'POST',
+      //   headers: {
+      //     'content-type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     user_identity,
+      //     room_name,
+      //     create_conversation: process.env.DISABLE_VIDEO_CALL_CONVERSATIONS !== 'true',
+      //   }),
+      // }).then(res => res.json());
+      const user_identity = `${user_name}${room_name}-${uuidv4()}`;
+
+      const response = await axios.get(
+        `https://cm2-twilio-video-poc-5184-dev.twil.io/token-service?identity=${user_identity}`
+      );
+
+      console.log(response);
+      const data = response.data;
+
+      data.room_type = process.env.ROOM_TYPE;
+      return data;
     },
     updateRecordingRules: async (room_sid, rules) => {
       const endpoint = process.env.REACT_APP_TOKEN_ENDPOINT || '/recordingrules';

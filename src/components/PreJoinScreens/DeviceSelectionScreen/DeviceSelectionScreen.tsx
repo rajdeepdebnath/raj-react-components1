@@ -4,7 +4,7 @@ import useVideoContext from '../../hooks/useVideoContext';
 import SettingsMenu from './SettingsMenu'
 import ToggleAudioButton from '../../Buttons/ToggleAudioButton'
 import ToggleVideoButton from '../../Buttons/ToggleVideoButton'
-import useAppState from '../../../state'
+import { useAppState } from '../../../state'
 
 const useStyles = makeStyles((theme: Theme) => ({
     gutterBottom: {
@@ -55,18 +55,20 @@ interface DeviceSelectionScreenProps {
 
   export default function DeviceSelectionScreen({ name, roomName }: DeviceSelectionScreenProps) {
     const classes = useStyles();
-    let isFetching = false;
-    let isConnecting = false;
-    // const { getToken, isFetching } = useAppState();
-    const { isAcquiringLocalTracks } = useVideoContext();
+    // let isConnecting = false;
+    const { getToken, isFetching } = useAppState();
+    const { connect: videoConnect, isAcquiringLocalTracks, isConnecting } = useVideoContext();
     const disableButtons = isFetching || isAcquiringLocalTracks || isConnecting;
     
     const handleJoin = () => {
-      alert("joined");
-      // getToken(name, roomName).then(({ token }) => {
-      //   videoConnect(token);
-      //   process.env.REACT_APP_DISABLE_TWILIO_CONVERSATIONS !== 'true' && chatConnect(token);
-      // });
+      alert("joining...");
+      getToken(name, roomName).then(({ accessToken }) => 
+      {
+        alert(accessToken)
+        videoConnect(accessToken);
+        //process.env.REACT_APP_DISABLE_TWILIO_CONVERSATIONS !== 'true' && chatConnect(accessToken);
+      }
+      );
     };
 
     if (isFetching || isConnecting) {

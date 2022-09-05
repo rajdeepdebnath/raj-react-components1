@@ -6,8 +6,8 @@ import useRoom from './useRoom';
 export interface IVideoContext {
     room: Room | null;
     localTracks: (LocalAudioTrack | LocalVideoTrack)[];
-    // isConnecting: boolean;
-    // connect: (token: string) => Promise<void>;
+    isConnecting: boolean;
+    connect: (token: string) => Promise<void>;
     onError: ErrorCallback;
     getLocalVideoTrack: (newOptions?: CreateLocalTrackOptions) => Promise<LocalVideoTrack>;
     getLocalAudioTrack: (deviceId?: string) => Promise<LocalAudioTrack>;
@@ -80,11 +80,11 @@ interface VideoProviderProps {
         value={{
           room,
           localTracks,
-        //   isConnecting,
+          isConnecting,
           onError: onErrorCallback,
           getLocalVideoTrack,
           getLocalAudioTrack,
-        //   connect,
+          connect,
           isAcquiringLocalTracks,
           removeLocalVideoTrack,
         //   isSharingScreen,
