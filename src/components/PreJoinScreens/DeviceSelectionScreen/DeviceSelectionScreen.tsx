@@ -2,6 +2,8 @@ import { makeStyles, Typography, Grid, Button, Theme, Hidden, CircularProgress }
 import LocalVideoPreview from './LocalVideoPreview'
 import useVideoContext from '../../hooks/useVideoContext';
 import SettingsMenu from './SettingsMenu'
+import ToggleAudioButton from '../../Buttons/ToggleAudioButton'
+import ToggleVideoButton from '../../Buttons/ToggleVideoButton'
 
 const useStyles = makeStyles((theme: Theme) => ({
     gutterBottom: {
@@ -55,6 +57,7 @@ interface DeviceSelectionScreenProps {
     let isFetching = false;
     let isConnecting = false;
     const { isAcquiringLocalTracks } = useVideoContext();
+    const disableButtons = isFetching || isAcquiringLocalTracks || isConnecting;
 
     if (isFetching || isConnecting) {
         return (
@@ -85,6 +88,10 @@ interface DeviceSelectionScreenProps {
                         <LocalVideoPreview identity={name} />
                     </div>
                     <div className={classes.mobileButtonBar}>
+                        <Hidden mdUp>
+                          <ToggleAudioButton className={classes.mobileButton} disabled={disableButtons} />
+                          <ToggleVideoButton className={classes.mobileButton} disabled={disableButtons} />
+                        </Hidden>
                         <SettingsMenu mobileButtonClass={classes.mobileButton} />
                     </div>
                 </Grid>

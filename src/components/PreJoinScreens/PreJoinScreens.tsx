@@ -25,10 +25,6 @@ import IntroContainer from '../IntroContainer/IntroContainer'
     return (
         <IntroContainer>
             <MediaErrorSnackbar error={mediaError} />
-            <p>PreJoinScreens:</p>
-            <Hidden mdDown>
-                <Paper>Small Down</Paper>
-            </Hidden>
             <DeviceSelectionScreen name={name} roomName={roomName} />
         </IntroContainer>
     );
