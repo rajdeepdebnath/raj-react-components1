@@ -4,6 +4,7 @@ import useVideoContext from '../../hooks/useVideoContext';
 import SettingsMenu from './SettingsMenu'
 import ToggleAudioButton from '../../Buttons/ToggleAudioButton'
 import ToggleVideoButton from '../../Buttons/ToggleVideoButton'
+import useAppState from '../../../state'
 
 const useStyles = makeStyles((theme: Theme) => ({
     gutterBottom: {
@@ -56,8 +57,17 @@ interface DeviceSelectionScreenProps {
     const classes = useStyles();
     let isFetching = false;
     let isConnecting = false;
+    // const { getToken, isFetching } = useAppState();
     const { isAcquiringLocalTracks } = useVideoContext();
     const disableButtons = isFetching || isAcquiringLocalTracks || isConnecting;
+    
+    const handleJoin = () => {
+      alert("joined");
+      // getToken(name, roomName).then(({ token }) => {
+      //   videoConnect(token);
+      //   process.env.REACT_APP_DISABLE_TWILIO_CONVERSATIONS !== 'true' && chatConnect(token);
+      // });
+    };
 
     if (isFetching || isConnecting) {
         return (
@@ -94,6 +104,29 @@ interface DeviceSelectionScreenProps {
                         </Hidden>
                         <SettingsMenu mobileButtonClass={classes.mobileButton} />
                     </div>
+                </Grid>
+                <Grid item md={5} sm={12} xs={12}>
+                  <Grid container direction="column" justifyContent="space-between" style={{ height: '100%' }}>
+                    <div className={classes.mobileButtonBar}>
+                      <Hidden smDown>
+                        <ToggleAudioButton className={classes.deviceButton} disabled={disableButtons} />
+                        <ToggleVideoButton className={classes.deviceButton} disabled={disableButtons} />
+                      </Hidden>
+                    </div>
+                    <div className={classes.joinButtons}>
+                      <Button variant="outlined" color="primary" onClick={() => alert('cancelled')}>
+                        Cancel
+                      </Button>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handleJoin}
+                        disabled={disableButtons}
+                      >
+                        Join Now
+                      </Button>
+                    </div>
+                  </Grid>
                 </Grid>
             </Grid>
         </>

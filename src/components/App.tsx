@@ -22,7 +22,6 @@ export default function App() {
             {roomState === 'disconnected' ? <PreJoinScreens />
             :
             (<div>connected11</div>)}
-            <div>welcomeeeee</div>
         </Container>
     );
   }
