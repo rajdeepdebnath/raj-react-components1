@@ -55,7 +55,6 @@ interface DeviceSelectionScreenProps {
 
   export default function DeviceSelectionScreen({ name, roomName }: DeviceSelectionScreenProps) {
     const classes = useStyles();
-    // let isConnecting = false;
     const { getToken, isFetching } = useAppState();
     const { connect: videoConnect, isAcquiringLocalTracks, isConnecting } = useVideoContext();
     const disableButtons = isFetching || isAcquiringLocalTracks || isConnecting;

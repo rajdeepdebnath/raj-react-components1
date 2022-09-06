@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flex: 1,
     [theme.breakpoints.down('sm')]: {
       padding: '2em',
+      width: 'calc(100% - 4em)'
     },
   },
   title: {
