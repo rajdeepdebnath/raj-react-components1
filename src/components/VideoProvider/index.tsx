@@ -1,7 +1,9 @@
 import React, { createContext, ReactNode, useCallback, useState } from 'react';
 import { CreateLocalTrackOptions, ConnectOptions, LocalAudioTrack, LocalVideoTrack, Room } from 'twilio-video';
+import { ErrorCallback } from '../../types';
 import useLocalTracks from './useLocalTracks';
 import useRoom from './useRoom';
+import useScreenShareToggle from '../hooks/useScreenShareToggle';
 
 export interface IVideoContext {
     room: Room | null;
@@ -13,8 +15,8 @@ export interface IVideoContext {
     getLocalAudioTrack: (deviceId?: string) => Promise<LocalAudioTrack>;
     isAcquiringLocalTracks: boolean;
     removeLocalVideoTrack: () => void;
-    // isSharingScreen: boolean;
-    // toggleScreenShare: () => void;
+    isSharingScreen: boolean;
+    toggleScreenShare: () => void;
     getAudioAndVideoTracks: () => Promise<void>;
     isBackgroundSelectionOpen: boolean;
     setIsBackgroundSelectionOpen: (value: boolean) => void;
@@ -54,7 +56,7 @@ interface VideoProviderProps {
     const { room, isConnecting, connect } = useRoom(localTracks, onErrorCallback, options);
     // const [room, setRoom] = useState<Room | null>(null);
   
-    // const [isSharingScreen, toggleScreenShare] = useScreenShareToggle(room, onError);
+    const [isSharingScreen, toggleScreenShare] = useScreenShareToggle(room, onError);
   
     // // Register callback functions to be called on room disconnect.
     // useHandleRoomDisconnection(
@@ -87,8 +89,8 @@ interface VideoProviderProps {
           connect,
           isAcquiringLocalTracks,
           removeLocalVideoTrack,
-        //   isSharingScreen,
-        //   toggleScreenShare,
+          isSharingScreen,
+          toggleScreenShare,
           getAudioAndVideoTracks,
           isBackgroundSelectionOpen,
           setIsBackgroundSelectionOpen,
