@@ -9,15 +9,14 @@ const Template = (args) => ({
   //👇 Your template goes here
 });
 
-const PrimaryButton = Template.bind({});
+const PrimaryVideo = Template.bind({});
 
-PrimaryButton.args = {
-  // variant: 'primary',
+PrimaryVideo.args = {
+  roomName:'Storybook Room'
 };
 
 export const Primary = {
   args: {
-    // variant: 'primary',
-    // children: 'My First Button'
+    roomName:'Storybook Room'
   },
 };

@@ -23,6 +23,8 @@ export interface StateContextType {
   setIsGalleryViewActive: React.Dispatch<React.SetStateAction<boolean>>;
   maxGalleryViewParticipants: number;
   setMaxGalleryViewParticipants: React.Dispatch<React.SetStateAction<number>>;
+  roomName?:string;
+  setRoomName: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const StateContext = createContext<StateContextType>(null!);
@@ -42,6 +44,7 @@ export default function AppStateProvider(props: React.PropsWithChildren<{}>) {
   const [isGalleryViewActive, setIsGalleryViewActive] = useLocalStorageState('gallery-view-active-key', true);
   const [settings, dispatchSetting] = useReducer(settingsReducer, initialSettings);
   const [roomType, setRoomType] = useState<string>();
+  const [roomName, setRoomName] = useState<string>();
   const [maxGalleryViewParticipants, setMaxGalleryViewParticipants] = useLocalStorageState(
     'max-gallery-participants-key',
     6
@@ -58,6 +61,8 @@ export default function AppStateProvider(props: React.PropsWithChildren<{}>) {
     setIsGalleryViewActive,
     maxGalleryViewParticipants,
     setMaxGalleryViewParticipants,
+    roomName,
+    setRoomName
   } as StateContextType;
 
   contextValue = {

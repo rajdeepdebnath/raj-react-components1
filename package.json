@@ -1,6 +1,6 @@
 {
   "name": "@raj_deb/raj-react-component1",
-  "version": "57.4.2",
+  "version": "57.4.3",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
