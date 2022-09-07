@@ -15,7 +15,6 @@ interface Props{
 
 function VideoProviderWrapper({ roomName }){
 
-    // const connectionOptions = undefined;
     const connectionOptions = useConnectionOptions();
     const { error, setError, setRoomName } = useAppState();
 
@@ -39,14 +38,6 @@ const Video: React.FC<Props> = ({ roomName }) => {
                 <AppStateProvider>
                     <VideoProviderWrapper roomName={roomName} />
                 </AppStateProvider>
-                {/* <Routes>
-                    <Route path="/login" element={<LoginPage />} >
-                    </Route>
-                    <Route path="/room" element={<div>Hiiiiii12345</div>} >
-                    </Route>
-                    <Route path="/video" element={<App />} >
-                    </Route>
-                </Routes> */}
             </UnsupportedBrowserWarning>
         </MuiThemeProvider>
     )

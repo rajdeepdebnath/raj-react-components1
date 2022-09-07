@@ -3,6 +3,7 @@ import { styled, Theme } from '@material-ui/core/styles';
 import useHeight from './hooks/useHeight';
 import useRoomState from './hooks/useRoomState';
 import PreJoinScreens from './PreJoinScreens/PreJoinScreens';
+import MobileTopMenuBar from './MobileTopMenuBar';
 import MenuBar from './MenuBar';
 
 
@@ -32,6 +33,7 @@ export default function App() {
             {roomState === 'disconnected' ? <PreJoinScreens />
             :
             (<Main>
+              <MobileTopMenuBar />
               <MenuBar />
             </Main>)}
         </Container>
