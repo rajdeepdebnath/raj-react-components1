@@ -1,7 +1,7 @@
 import { Callback } from '../../types';
 import { isMobile } from '../../utils';
 import Video, { ConnectOptions, LocalTrack, Room } from 'twilio-video';
-// import { VideoRoomMonitor } from '@twilio/video-room-monitor';
+import { VideoRoomMonitor } from '@twilio/video-room-monitor';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 // @ts-ignore
@@ -23,15 +23,17 @@ export default function useRoom(localTracks: LocalTrack[], onError: Callback, op
       setIsConnecting(true);
       return Video.connect(token, { ...optionsRef.current, tracks: localTracks }).then(
         newRoom => {
+          console.log(newRoom);
           setRoom(newRoom);
-        //   VideoRoomMonitor.registerVideoRoom(newRoom);
+          VideoRoomMonitor.registerVideoRoom(newRoom);
           const disconnect = () => newRoom.disconnect();
 
-          // This app can add up to 16 'participantDisconnected' listeners to the room object, which can trigger
+          // This app can add up to 5 'participantDisconnected' listeners to the room object, which can trigger
           // a warning from the EventEmitter object. Here we increase the max listeners to suppress the warning.
-          newRoom.setMaxListeners(16);
+          newRoom.setMaxListeners(5);
 
           newRoom.once('disconnected', () => {
+            alert('disconnect');
             // Reset the room only after all other `disconnected` listeners have been called.
             setTimeout(() => setRoom(null));
             window.removeEventListener('beforeunload', disconnect);

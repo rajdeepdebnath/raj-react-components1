@@ -5,14 +5,13 @@ import MediaErrorSnackbar from './MediaErrorSnackbar';
 import Hidden from '@material-ui/core/Hidden';
 import Paper from '@material-ui/core/Paper';
 import IntroContainer from '../IntroContainer/IntroContainer'
+import { useAppState } from '../../state';
 
 
 
   export default function PreJoinScreens() {
     const { getAudioAndVideoTracks } = useVideoContext();
     const [mediaError, setMediaError] = useState<Error>();
-    let name = 'Rajdeep';
-    let roomName = 'Rajdeep';
 
     useEffect(() => {
         getAudioAndVideoTracks().catch(error => {
@@ -25,7 +24,7 @@ import IntroContainer from '../IntroContainer/IntroContainer'
     return (
         <IntroContainer>
             <MediaErrorSnackbar error={mediaError} />
-            <DeviceSelectionScreen name={name} roomName={roomName} />
+            <DeviceSelectionScreen />
         </IntroContainer>
     );
   }

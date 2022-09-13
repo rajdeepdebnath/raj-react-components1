@@ -5,6 +5,8 @@ import useRoomState from './hooks/useRoomState';
 import PreJoinScreens from './PreJoinScreens/PreJoinScreens';
 import MobileTopMenuBar from './MobileTopMenuBar';
 import MenuBar from './MenuBar';
+import ReconnectingNotification from './ReconnectingNotification'
+import Room from './Room'
 
 
 const Container = styled('div')({
@@ -29,11 +31,13 @@ export default function App() {
     const height = useHeight();
 
     return (
-        <Container style={{ height, backgroundColor:'green' }}>
+        <Container style={{ height }}>
             {roomState === 'disconnected' ? <PreJoinScreens />
             :
             (<Main>
+              <ReconnectingNotification />
               <MobileTopMenuBar />
+              <Room />
               <MenuBar />
             </Main>)}
         </Container>

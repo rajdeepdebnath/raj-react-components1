@@ -49,22 +49,20 @@ const useStyles = makeStyles((theme: Theme) => ({
   }));
 
 interface DeviceSelectionScreenProps {
-    name: string;
-    roomName: string;
   }
 
-  export default function DeviceSelectionScreen({ name, roomName }: DeviceSelectionScreenProps) {
+  export default function DeviceSelectionScreen() {
     const classes = useStyles();
-    const { getToken, isFetching } = useAppState();
+    const { getToken, isFetching, roomName, participantName, roomDisplayName } = useAppState();
     const { connect: videoConnect, isAcquiringLocalTracks, isConnecting } = useVideoContext();
     const disableButtons = isFetching || isAcquiringLocalTracks || isConnecting;
     
     const handleJoin = () => {
       alert("joining...");
-      getToken(name, roomName).then(({ accessToken }) => 
+      getToken().then(({ token }) => 
       {
-        alert(accessToken)
-        videoConnect(accessToken);
+        alert("token received")
+        videoConnect(token);
         //process.env.REACT_APP_DISABLE_TWILIO_CONVERSATIONS !== 'true' && chatConnect(accessToken);
       }
       );
@@ -90,13 +88,13 @@ interface DeviceSelectionScreenProps {
   return (
         <>
             <Typography variant="h5" className={classes.gutterBottom}>
-                Join {roomName}
+                Join {roomDisplayName}
             </Typography>
             
             <Grid container justifyContent="center">
                 <Grid item md={7} sm={12} xs={12}>
                     <div className={classes.localPreviewContainer}>
-                        <LocalVideoPreview identity={name} />
+                        <LocalVideoPreview identity={participantName!} />
                     </div>
                     <div className={classes.mobileButtonBar}>
                         <Hidden mdUp>
