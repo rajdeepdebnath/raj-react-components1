@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 // import ChatWindow from '../ChatWindow/ChatWindow';
 import clsx from 'clsx';
 import { GalleryView } from './GalleryView';
-// import { MobileGalleryView } from '../MobileGalleryView/MobileGalleryView';
+import { MobileGalleryView } from './MobileGalleryView';
 import MainParticipant from './MainParticipant';
 import { makeStyles, Theme, useMediaQuery, useTheme } from '@material-ui/core';
 import { Participant, Room as IRoom } from 'twilio-video';
@@ -99,8 +99,7 @@ export default function Room() {
 
       {isGalleryViewActive ? (
         isMobile ? (
-        //   <MobileGalleryView />
-        <div>mobile view</div>
+          <MobileGalleryView />
         ) : (
           <GalleryView />
         )

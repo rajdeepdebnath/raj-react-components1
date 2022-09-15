@@ -10,11 +10,16 @@ import { useAppState } from '../../state';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     button: {
-      background: theme.brand,
-      color: 'white',
       '&:hover': {
+        color: 'white',
         background: '#600101',
       },
+    },
+    buttonDisconnect: {
+      background: theme.brand2
+    },
+    buttonEndCall: {
+      marginLeft:'10px'
     },
   })
 );
@@ -22,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function EndCallButton(props: { className?: string }) {
   const classes = useStyles();
   const { room } = useVideoContext();
-  const { completeRoom } = useAppState();
+  const { completeRoom, isHost } = useAppState();
 
   const endCallFn = useCallback(() => {
     if(confirm('Are you sure you want to END the call?')){
@@ -30,14 +35,21 @@ export default function EndCallButton(props: { className?: string }) {
     }
   }, []);
 
+  const disconnectFn = useCallback(() => {
+    if(confirm('Are you sure you want to disconnect?')){
+      room!.disconnect();
+    }
+  }, []);
+
   return (
-    <>
-      <Button onClick={() => room!.disconnect()} className={clsx(classes.button, props.className)}>
-        Disconnect
-      </Button>
-      <Button onClick={endCallFn} className={clsx(classes.button, props.className)}>
+      isHost 
+        ? 
+      <Button onClick={endCallFn} variant="outlined" color="secondary" className={classes.button}>
         End call
       </Button>
-    </>
+        :
+      <Button onClick={disconnectFn} variant="outlined" color="secondary" className={classes.button}>
+        Disconnect
+      </Button>
   );
 }
